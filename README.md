@@ -23,7 +23,7 @@ $ curl -o .github/workflows/auto-qa.yml https://raw.githubusercontent.com/panora
 ``` shell
 $ cd my-new-project
 $ mkdir .dependabot
-$ curl -o .dependabot/config.yml https://github.com/panorama-ed/base-dependabot-automation/blob/master/_dependabot/config.yml
+$ curl -o .dependabot/config.yml https://raw.githubusercontent.com/panorama-ed/base-dependabot-automation/master/_dependabot/config.yml
 ```
 
 3. Tweak `.dependabot/config.yml` for your project. Instructions and
