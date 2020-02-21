@@ -21,23 +21,22 @@ update_configs:
       - match:
           dependency_type: "direct"
 
-    automerged_updates:
-      # This allows all dependencies that are used for development, e.g., rspec,
-      # rspec-mock, vcr, etc, to be automatically updated. This is okay because
-      # the dependencies are not used in production.
-      - match:
-          dependency_type: "development"
-          update_type: "all"
+    # automerged_updates:
+    #   # This allows all dependencies that are used for development, e.g., rspec,
+    #   # rspec-mock, vcr, etc, to be automatically updated. This is generally
+    #   # okay because the dependencies are not used in production.
+    #   - match:
+    #       dependency_type: "development"
+    #       update_type: "all"
 
-      # This is an example entry to enable automerging of a specific dependency
-      # when the update is only for minor or patch semantic versions.
-      #
-      # The dependency_name can also be a wildcard.
-      #
-      # This is left commented, but whitelisting a dependency for automatic
-      # merging is as simple as creating a new entry that looks like the below.
-      #
-      # - match:
-      #     dependency_type: "all"
-      #     dependency_name: "aws-sdk-s3"
-      #     update_type: "semver:minor"
+    #   # This is an example entry to enable automerging of a specific dependency
+    #   # when the update is only for minor or patch semantic versions.
+    #   #
+    #   # The dependency_name can also be a wildcard.
+    #   #
+    #   # This is left commented, but whitelisting a dependency for automatic
+    #   # merging is as simple as creating a new entry that looks like the below.
+    #   - match:
+    #       dependency_type: "all"
+    #       dependency_name: "aws-sdk-s3"
+    #       update_type: "semver:minor"
