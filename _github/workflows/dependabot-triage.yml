@@ -18,10 +18,10 @@ jobs:
       - name: Auto-approve for dependabot
         uses: hmarr/auto-approve-action@v2.0.0
         with:
-          github-token: ${{ secrets.PANORAMA_BOT_TOKEN }}
+          github-token: "${{ secrets.PANORAMA_BOT_TOKEN }}"
 
       - name: Assign to squad for review
         uses: panorama-ed/triage-review-to-team@master
         with:
           # See LastPass for this token
-          github-token: ${{secrets.PANORAMA_BOT_TOKEN}}
+          github-token: "${{ secrets.PANORAMA_BOT_TOKEN }}"
