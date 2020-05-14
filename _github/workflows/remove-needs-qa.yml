@@ -1,9 +1,11 @@
-# This workflow works by removing a "Needs QA" label from a PR when the actor is
-# a dependabot user. It runs when a PR is merged.
+# This workflow removes a "Needs QA" label from a PR when the actor is the
+# dependabot user merging a PR.
 #
 # We need this mechanism to allow for automerging whitelisted dependencies while
 # also allowing for blocking a merge to master for deployment (in the way that
-# our other PRs work).
+# our other PRs work). When the automerge script runs in henchman, it looks
+# for `Needs QA` on github pull requests, and if the label is present,
+# blocks the commit from merging.
 name: Remove 'Needs QA' label for auto-merged PRs.
 on:
   pull_request:
