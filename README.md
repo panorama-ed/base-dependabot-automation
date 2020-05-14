@@ -13,7 +13,7 @@ checking and merging. This can be accomplished in one of the following 2 ways.
 
 ```shell
 cd my-new-project
-curl https://raw.githubusercontent.com/panorama-ed/base-dependabot-automation/master/install.sh | bash -
+curl -s https://raw.githubusercontent.com/panorama-ed/base-dependabot-automation/master/install.sh | bash -
 ```
 
 ### Manually copying files
