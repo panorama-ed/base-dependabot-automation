@@ -13,6 +13,10 @@ update_configs:
     directory: "/"
     update_schedule: "weekly"
 
+    default_labels:
+      - "dependencies"
+      - "Needs QA"
+
     # Dependabot will use a repository's default branch. This will override
     # that.
     # target_branch: "master"
@@ -21,13 +25,13 @@ update_configs:
       - match:
           dependency_type: "direct"
 
-    # automerged_updates:
-    #   # This allows all dependencies that are used for development, e.g., rspec,
-    #   # rspec-mock, vcr, etc, to be automatically updated. This is generally
-    #   # okay because the dependencies are not used in production.
-    #   - match:
-    #       dependency_type: "development"
-    #       update_type: "all"
+    automerged_updates:
+      # This allows all dependencies that are used for development, e.g., rspec,
+      # rspec-mock, vcr, etc, to be automatically updated. This is generally
+      # okay because the dependencies are not used in production.
+      - match:
+          dependency_type: "development"
+          update_type: "all"
 
     #   # This is an example entry to enable automerging of a specific dependency
     #   # when the update is only for minor or patch semantic versions.
@@ -40,3 +44,7 @@ update_configs:
     #       dependency_type: "all"
     #       dependency_name: "aws-sdk-s3"
     #       update_type: "semver:minor"
+
+  - package_manager: "ruby:bundler"
+    directory: "/.overcommit"
+    update_schedule: "weekly"

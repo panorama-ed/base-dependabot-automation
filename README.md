@@ -14,8 +14,8 @@ checking and merging. This can be accomplished in the following way.
 ``` shell
 $ cd my-new-project
 $ mkdir -p .github/workflows
-$ curl -o .github/workflows/dependabot-triage.yml https://raw.githubusercontent.com/panorama-ed/base-dependabot-automation/master/_github/workflows/dependabot-triage.yml
-$ curl -o .github/workflows/auto-qa.yml https://raw.githubusercontent.com/panorama-ed/base-dependabot-automation/master/_github/workflows/auto-qa.yml
+$ curl -o .github/workflows/auto-approve-dependabot.yml https://raw.githubusercontent.com/panorama-ed/base-dependabot-automation/master/_github/workflows/auto-approve-dependabot.yml
+$ curl -o .github/workflows/remove-needs-qa.yml https://raw.githubusercontent.com/panorama-ed/base-dependabot-automation/master/_github/workflows/remove-needs-qa.yml
 ```
 
 2. Create `.dependabot/config.yml`
