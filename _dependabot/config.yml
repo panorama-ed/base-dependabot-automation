@@ -48,3 +48,7 @@ update_configs:
   - package_manager: "ruby:bundler"
     directory: "/.overcommit"
     update_schedule: "weekly"
+
+    default_labels:
+      - "dependencies"
+      - "Needs QA"
