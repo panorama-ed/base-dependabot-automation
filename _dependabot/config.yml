@@ -52,3 +52,12 @@ update_configs:
     default_labels:
       - "dependencies"
       - "Needs QA"
+
+    automerged_updates:
+      # This allows all dependencies that are used for overcommit and linting,
+      # e.g., rubocop, brakeman, etc, to be automatically updated. This is
+      # generally okay because these linters are used in CI so tests will fail
+      # and the PR will not be merged if there are breaking changes.
+      - match:
+          dependency_type: "all"
+          update_type: "all"
