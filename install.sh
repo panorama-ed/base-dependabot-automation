@@ -1,18 +1,12 @@
 #!/usr/bin/env bash
 
-GIT_RAW_BASE="https://raw.githubusercontent.com/panorama-ed/base-dependabot-automation/master"
+GIT_RAW_BASE="https://raw.githubusercontent.com/panorama-ed/base-dependabot-automation/main"
 
 REMOTE_WORKFLOW_PATH="_github/workflows"
-declare -a WORKFLOW_FILES=(
-  "auto-approve-dependabot.yml"
-  "remove-needs-qa.yml"
-)
+declare -a WORKFLOW_FILE="dependabot-prs.yml"
 
-
-REMOTE_DEPENDABOT_PATH="_dependabot"
-declare -a DEPENDABOT_FILES=(
-  "config.yml"
-)
+REMOTE_DEPENDABOT_PATH="_github"
+declare -a DEPENDABOT_FILE="dependabot.yml"
 
 function install_files {
   REMOTE_PATH=$1
@@ -30,5 +24,5 @@ function install_files {
   done
 }
 
-install_files $REMOTE_WORKFLOW_PATH ${WORKFLOW_FILES[@]}
-install_files $REMOTE_DEPENDABOT_PATH ${DEPENDABOT_FILES[@]}
+install_files $REMOTE_WORKFLOW_PATH $WORKFLOW_FILE
+install_files $REMOTE_DEPENDABOT_PATH $DEPENDABOT_FILE
