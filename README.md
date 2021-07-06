@@ -7,7 +7,11 @@ repo, largely without modification.
 ## Adding automation to a project
 
 Let's say we have a repo, `my-new-project` and we want to set up Dependabot in
-it. This can be accomplished in one of the following two ways:
+it. First, you must follow **_all_** the other instructions
+[in Panopedia](https://panoramaed.atlassian.net/wiki/spaces/ENG/pages/2162262038/Setting+up+a+new+GitHub+repository).
+
+Then we add the configuration and automation files, which can be accomplished in
+one of the following two ways:
 
 ### Option A: Using install.sh
 

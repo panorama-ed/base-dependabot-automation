@@ -11,7 +11,19 @@ updates:
   - dependencies
   - Needs QA
   allow:
-  - dependency-type: all
+  - dependency-type: direct
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: weekly
+    time: "00:00"
+    timezone: America/New_York
+  open-pull-requests-limit: 99
+  labels:
+  - dependencies
+  - Needs QA
+  allow:
+  - dependency-type: direct
 - package-ecosystem: bundler
   directory: "/.overcommit"
   schedule:
@@ -24,3 +36,4 @@ updates:
   labels:
   - dependencies
   - Needs QA
+  - development-dependencies
