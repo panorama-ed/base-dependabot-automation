@@ -36,4 +36,4 @@ updates:
   labels:
   - dependencies
   - Needs QA
-  - development-dependencies
+  - development-dependencies # Used in `.github/workflows/dependabot-prs.yml`
