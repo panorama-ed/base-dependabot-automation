@@ -1,5 +1,7 @@
 name: Dependabot Pull Request
-on: pull_request_target
+on:
+  pull_request_target:
+    types: [opened, synchronize, reopened, labeled]
 jobs:
   build:
     runs-on: ubuntu-latest
