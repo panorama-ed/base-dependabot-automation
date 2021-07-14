@@ -13,12 +13,19 @@ jobs:
       with:
         github-token: "${{ secrets.GITHUB_TOKEN }}"
     - name: Approve and merge Dependabot PRs for development dependencies
-      # Merge the PR if either:
+      # Auto-merge the PR if either:
       # a) it has the `development-dependencies` label, which we add for certain
       #    categories of PRs (see `.github/dependabot.yml`), OR
       # b) Dependabot has categorized it as a `direct:development` dependency,
       #    meaning it's in the Gemfile in a `development` or `test` group
-      if: ${{ contains(github.event.pull_request.labels.*.name, 'development-dependencies') || steps.dependabot-metadata.outputs.dependency-type == 'direct:development' }}
+      #
+      # Note that we also do nothing when the PR has already had auto-merge
+      # enabled, to prevent scenarios where this check runs many times (for
+      # instance, because removing `Needs QA` triggers another run, or because
+      # other PRs are merging and causing this to rebase and trigger another
+      # run) and then approves the PR many times, which is confusing and looks
+      # awkward.
+      if: ${{ !github.event.pull_request.auto_merge && (contains(github.event.pull_request.labels.*.name, 'development-dependencies') || steps.dependabot-metadata.outputs.dependency-type == 'direct:development') }}
       run: gh pr merge --auto --merge "$PR_URL" && gh pr edit "$PR_URL" --remove-label "Needs QA" && gh pr review --approve "$PR_URL"
       env:
         PR_URL: ${{github.event.pull_request.html_url}}

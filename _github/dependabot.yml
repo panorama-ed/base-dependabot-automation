@@ -32,11 +32,13 @@ updates:
     timezone: America/New_York
   open-pull-requests-limit: 99
   allow:
-  # Allow indirect dependencies here only, because we'll auto-merge all of these
-  # PRs by using the `development-dependencies` label below in
+  # Allow indirect dependencies (via `all`) here, because we'll auto-merge all
+  # of these PRs by using the `development-dependencies` label below in
   # `.github/workflows/dependabot-prs.yml`. We do not allow indirect dependency
   # PRs for other types of dependencies because they are noisy and hard to
-  # manually review.
+  # manually review, and because Dependabot is not currently able to indicate
+  # when an indirect dependency is only used in development
+  # (see: https://github.com/dependabot/fetch-metadata/issues/43).
   - dependency-type: all
   labels:
   - dependencies
